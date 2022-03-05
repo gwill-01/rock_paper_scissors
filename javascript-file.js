@@ -20,7 +20,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
         return "You win this round";
     } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
-        return "You win this round";
+        return "You lose this round";
     } else if (playerSelection.toLowerCase() == computerSelection) {
         return "This round is a wash";
     } else {
@@ -28,14 +28,17 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = 'PAPER';
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-    
-/* game function keeps track of 5 rounds */
+
+
+/* game function plays 5 rounds */
 
 function game() {
-    
+    for(let i = 0; i < 5; i++) {
+        let playerSelection = (prompt("rock, paper, or scissors?"));
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+    }
 }
 
-/* Allow custom player selection */
+/* tallies total of "you wins" vs "you lost" */
